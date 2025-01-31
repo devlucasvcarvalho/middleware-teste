@@ -1,0 +1,49 @@
+<main class="main">
+  <div class="container mt-5">
+    <div class="row gap-5 d-flex">
+      <div class="col d-flex flex-column align-items-start row-gap-sm-4">
+        <img src="/assets/logo.svg" alt="Logo InterAções" />
+
+        <p class="text-secondary">
+          <b>Ação intersetorial</b> em sentido largo é definida como alinhamento de estratégias de intervenção e de recursos entre atores a partir de dois ou mais seletores no interior da esfera pública para realizar objetivos complementares que são relevantes e válidos para todas as partes.
+        </p>
+
+        <div>
+          <p class="text-secondary">Acesse o mapa clicando o botão abaixo</p>
+          <a href="#" class="btn btn-primary">
+            <i class="fa-solid fa-user"></i>
+            Mapa de InterAções
+          </a>
+        </div>
+      </div>
+      <div class="col">
+        <img src="/assets/hero-image.svg" alt="Imagem de Interações" />
+      </div>
+    </div>
+  </div>
+
+  <div class="pb-5">
+    <div class="container-xxl d-flex justify-content-between">
+      <div></div>
+      
+      <button class="btn btn-outline-primary">
+        Guia de uso
+      </button>
+    </div>
+    <div class="container-xxl pe-auto pe-md-0 h-100">
+      <div class="row h-100 pt-4">
+        <div [ngClass]="{ 'd-block col-9 col-sm-3': sidebarVisible, 'd-none': !sidebarVisible }">
+          <app-item-list />
+        </div>
+        <div [ngClass]="{ 'd-block col-3 col-sm-9': sidebarVisible, 'col-12': !sidebarVisible }" class="position-relative">
+          <app-map-viewer />
+
+          <button class="sidebar-control-btn btn btn-primary" (click)="toggleSidebar()">
+            ☰
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+

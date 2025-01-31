@@ -1,0 +1,130 @@
+.map-container {
+  height: 100%;
+  width: 100%;
+
+  #map {
+    height: 100%;
+    width: 100%;
+    border-radius: 16px 16px 0 0;
+  }
+}
+
+
+:host ::ng-deep .leaflet-popup-content-wrapper {
+  background-color: #155BCB !important; /* Fundo azul */
+  color: white !important; /* Texto branco */
+  border-radius: 5px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+:host ::ng-deep .leaflet-popup-tip {
+  background: #155BCB !important; /* Fundo azul da seta */
+}
+
+/* Modal */
+.modal {
+  display: none; /* Inicialmente oculto */
+  position: fixed;
+  z-index: 1; /* Fica sobre outros elementos */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* Caso o conteúdo ultrapasse a altura da tela */
+  background-color: rgb(0,0,0); /* Fundo semitransparente */
+  background-color: rgba(0,0,0,0.4); /* Fundo com opacidade */
+  z-index: 999999; /* Coloca o modal bem acima de outros elementos */
+}
+
+/* Conteúdo do Modal */
+.modal-content {
+  background-color: white;
+  margin: 5% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px;
+  border-radius: 8px;
+}
+
+/* Fechar Modal */
+.close {
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+}
+
+/* Estilos para o Título */
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Barra de pesquisa */
+.search-bar {
+  margin-bottom: 20px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Lista de Itens */
+.actions-list {
+  margin-bottom: 20px;
+}
+
+/* Item da Ação */
+.action-item {
+  display: flex;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+}
+
+.image-placeholder {
+  width: 80px;
+  height: 80px;
+  background-color: #ddd;
+  margin-right: 20px;
+  border-radius: 4px;
+}
+
+.action-details {
+  flex: 1;
+}
+
+.action-title {
+  font-size: 18px;
+  margin: 0;
+}
+
+.action-description {
+  font-size: 14px;
+  color: #555;
+}
+
+/* Paginador */
+.paginator {
+  text-align: center;
+}
+
+.paginator-btn {
+  padding: 8px 16px;
+  margin: 5px;
+  border: 1px solid #ccc;
+  background-color: #f4f4f4;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.paginator-btn:hover {
+  background-color: #ddd;
+}

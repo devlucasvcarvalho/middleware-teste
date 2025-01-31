@@ -1,0 +1,19 @@
+<div class="h-100 d-flex flex-column">
+    <!-- Filtro e Lista de Interações -->
+    <div class="flex-fill gap-4 d-flex flex-column item-card-list-container">
+        <div *ngIf="filteredInteracoes.length > 0">
+            <h3 class="municipio-title">Resultados para: {{ filteredInteracoes[0].municipio }} - {{ filteredInteracoes[0].uf }}</h3>
+        </div>
+      <app-item-card
+        *ngFor="let interacao of filteredInteracoes"
+        [interacao]="interacao"
+      >
+      </app-item-card>
+  
+      <!-- Caso não haja resultados filtrados -->
+      <div *ngIf="filteredInteracoes.length === 0">
+        <p class="no-results">Nenhum resultado encontrado para "Horizonte".</p>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,19 @@
+<div class="item-card d-flex gap-2">
+  <img
+    [src]="interacao.thumbnail"
+    alt="Imagem"
+    class="rounded"
+    style="width: 100px; height: 100px;"
+  />
+  <div>
+    <p class="fs-6 mb-0 text-secondary text-nowrap">
+      Ação
+    </p>
+    <p class="mb-0 fs-6 text-black fw-medium">
+      {{ interacao.acao }}
+    </p>
+    <p class="mb-0 fs-6 text-secondary text-end text-nowrap">
+      {{ interacao.municipio }} - {{ interacao.uf }}
+    </p>
+  </div>
+</div>

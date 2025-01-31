@@ -1,0 +1,34 @@
+name: Deploy Frontend to Vercel
+
+on:
+  push:
+    branches:
+      - main # Substitua "main" pelo nome da sua branch principal, se necessário.
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+        with:
+          submodules: true
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18 
+
+      - name: Install dependencies and build
+        run: |
+          npm install
+          npm run build 
+   
+
+      - name: Deploy to Vercel
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }} # Token do Vercel armazenado nos GitHub Secrets
+        run: |
+          npm install -g vercel
+          vercel --prod --token=$VERCEL_TOKEN --yes

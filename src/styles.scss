@@ -1,0 +1,49 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
+
+*, input, button, textarea, select {
+  font-family: 'Rawline', sans-serif;
+}
+
+.btn {
+  border-radius: 20px;
+  padding: 8px 24px;
+  font-weight: 600;
+  border: none;
+}
+.btn-primary {
+  color: #ffffff;
+  background-color: #1351B4;
+}
+.btn-outline-primary {
+  color: #1351B4;
+  border: 2px solid #1351B4;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  .page-item a {
+    border: none;
+    font-weight: 700;
+    color: #0C326F;
+    border-radius: 100%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .page-item.active a {
+    background: #0C326F;
+    color: white;
+  }
+  .page-item.disabled a {
+    background: none;
+    opacity: 0.25;
+  }
+}
