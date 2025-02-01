@@ -1,22 +1,29 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  template: `
+    <h2>Login</h2>
+    <form (ngSubmit)="login()">
+      <input type="text" [(ngModel)]="email" name="email" placeholder="Email" required>
+      <input type="password" [(ngModel)]="password" name="password" placeholder="Senha" required>
+      <button type="submit">Entrar</button>
+    </form>
+  `,
 })
 export class LoginComponent {
-  apiKey: string = '';  // Armazenar a chave de acesso inserida pelo usuário
+  email = '';
+  password = '';
 
-  constructor(private router: Router) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   login() {
-    if (this.apiKey === 'SUA_CHAVE_SECRETA') {  // Verificar a chave
-      localStorage.setItem('api_key', this.apiKey);  // Salvar no localStorage
-      this.router.navigate(['/dev']);  // Redireciona para uma rota protegida
+    if (this.authService.login(this.email, this.password)) {
+      this.router.navigate(['/dev']);
     } else {
-      alert('Chave inválida!');
+      alert('Login inválido!');
     }
   }
 }
