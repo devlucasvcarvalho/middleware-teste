@@ -19,10 +19,14 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18 
+          
+      - name: Create environments directory
+        run: mkdir -p src/environments
 
       - name: Install dependencies and build
         run: |
           npm install
+          npm install dotenv --save
           npm run build 
    
 
