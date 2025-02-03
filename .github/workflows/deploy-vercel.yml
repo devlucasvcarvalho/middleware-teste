@@ -35,4 +35,4 @@ jobs:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }} # Token do Vercel armazenado nos GitHub Secrets
         run: |
           npm install -g vercel
-          vercel --prod --token=$VERCEL_TOKEN --yes
+          vercel --token=$VERCEL_TOKEN --yes
