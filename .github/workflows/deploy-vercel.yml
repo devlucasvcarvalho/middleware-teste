@@ -23,6 +23,7 @@ jobs:
       - name: Install dependencies and build
         run: |
           npm install
+          npm install dotenv --save
           npm run build 
    
 
