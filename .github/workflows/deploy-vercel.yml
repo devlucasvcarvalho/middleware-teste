@@ -2,7 +2,7 @@ name: Deploy Frontend to Vercel
 
 env:
   ACESS_KEY: ${{ secrets.ACESS_KEY }}
-  PRODUCTION: ${{secrets.PRODUCTION}}
+  PRODUCTION: false
   # EMAIL: ${{ secrets.EMAIL }}
   # PASSWORD: ${{ secrets.PASSWORD }}
   
