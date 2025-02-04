@@ -1,9 +1,27 @@
 import { Routes } from '@angular/router';
 
-import { HomeComponent } from './pages/home/home.component';
-import { InfoComponent } from './pages/info/info.component';
+import { environment } from '../environments/environment';
+
+import { authGuard } from './auth.guard';
+
+const authGuardIfIsRequired = environment.production ? [authGuard] : undefined
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent }, // Rota para /
-  { path: 'info', component: InfoComponent }, // Rota para /info
+  {
+    path: 'auth',
+    loadComponent: () =>
+      import('./auth/auth.component').then(m => m.AuthComponent)
+  },
+  {
+    path: '',
+    loadComponent: () =>
+      import('./pages/home/home.component').then(m => m.HomeComponent),
+    canActivate: authGuardIfIsRequired
+  },
+  {
+    path: 'info',
+    loadComponent: () =>
+      import('./pages/info/info.component').then(m => m.InfoComponent),
+    canActivate: authGuardIfIsRequired
+  }
 ];

@@ -3,7 +3,7 @@ name: Deploy Frontend to Vercel
 on:
   push:
     branches:
-      - teste # Substitua "main" pelo nome da sua branch principal, se necessário.
+      - dev # Substitua "main" pelo nome da sua branch principal, se necessário.
 
 jobs:
   deploy:
@@ -18,8 +18,8 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18 
-          
+          node-version: 18
+
       - name: Create environments directory
         run: mkdir -p src/environments
 
@@ -27,8 +27,7 @@ jobs:
         run: |
           npm install
           npm install dotenv --save
-          npm run build 
-   
+          npm run build
 
       - name: Deploy to Vercel
         env:
