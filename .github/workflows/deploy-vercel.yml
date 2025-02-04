@@ -2,14 +2,14 @@ name: Deploy Frontend to Vercel
 
 env:
   ACESS_KEY: ${{ secrets.ACESS_KEY }}
-  PRODUCTION: false
+  # PRODUCTION: true
   # EMAIL: ${{ secrets.EMAIL }}
   # PASSWORD: ${{ secrets.PASSWORD }}
   
 on:
   push:
     branches:
-      - dev # Substitua "main" pelo nome da sua branch principal, se necessário.
+      - main # Substitua "main" pelo nome da sua branch principal, se necessário.
 
 jobs:
   deploy:
