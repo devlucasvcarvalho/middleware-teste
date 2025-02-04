@@ -1,0 +1,8 @@
+<div>
+  <p class="title">Sign In</p>
+  <form [formGroup]="signInForm" (ngSubmit)="signIn()">
+      <input type="text" name="access_key" formControlName="access_key">
+      <br>
+      <button type="submit">Sign In</button>
+  </form>
+</div>

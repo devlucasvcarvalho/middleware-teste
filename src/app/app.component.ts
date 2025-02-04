@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { FooterComponent } from './components/footer/footer.component';
 
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     RouterOutlet,
     NavbarComponent,
     FooterComponent,
+    FormsModule
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'

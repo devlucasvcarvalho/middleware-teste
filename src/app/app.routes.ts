@@ -1,17 +1,27 @@
 import { Routes } from '@angular/router';
 
-import { HomeComponent } from './pages/home/home.component';
-import { InfoComponent } from './pages/info/info.component';
+import { environment } from '../environments/environment';
 
-import { LoginComponent } from './pages/login/login.component';
-import { AuthGuard } from './auth/auth.guard'; 
+import { authGuard } from './auth.guard';
 
+const authGuardIfIsRequired = environment.production ? [authGuard] : undefined
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent }, // Rota para /
-  { path: 'info', component: InfoComponent }, // Rota para /info
-  { path: 'login', component: LoginComponent },
-  // { path: 'dev', canActivate: [AuthGuard], loadComponent: () => import('./dev/dev.component').then(m => m.DevComponent) },
-  // { path: 'test', canActivate: [AuthGuard], loadComponent: () => import('./test/test.component').then(m => m.TestComponent) },
-  { path: '', redirectTo: '/login', pathMatch: 'full' }, // Redireciona para /login caso a rota não exista
+  {
+    path: 'auth',
+    loadComponent: () =>
+      import('./auth/auth.component').then(m => m.AuthComponent)
+  },
+  {
+    path: '',
+    loadComponent: () =>
+      import('./pages/home/home.component').then(m => m.HomeComponent),
+    canActivate: authGuardIfIsRequired
+  },
+  {
+    path: 'info',
+    loadComponent: () =>
+      import('./pages/info/info.component').then(m => m.InfoComponent),
+    canActivate: authGuardIfIsRequired
+  }
 ];
