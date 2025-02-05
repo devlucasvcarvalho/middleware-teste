@@ -9,7 +9,7 @@ env:
 on:
   push:
     branches:
-      - dev # Substitua "main" pelo nome da sua branch principal, se necessário.
+      - teste # Substitua "main" pelo nome da sua branch principal, se n
 
 jobs:
   deploy:

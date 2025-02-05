@@ -16,12 +16,14 @@ export class AuthService {
 
   autoSignIn() {
     if (localStorage.getItem('access_key') === environment.access_key) {
+
       this.isAuth.next(true);
       this.router.navigate(['/']);
     }
   }
 
   signIn(access_key: string) {
+
     if (environment.access_key === access_key) {
       localStorage.setItem('access_key', access_key);
       this.isAuth.next(true);
