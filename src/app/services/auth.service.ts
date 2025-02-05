@@ -15,15 +15,15 @@ export class AuthService {
   }
 
   autoSignIn() {
-    // Aqui verificar se o valor que tá no localStorage é igual o valor da variável de ambiente
-    if (localStorage.getItem('access_key')) {
+    if (localStorage.getItem('access_key') === environment.access_key) {
+
       this.isAuth.next(true);
       this.router.navigate(['/']);
     }
   }
 
   signIn(access_key: string) {
-    console.log(environment.access_key)
+
     if (environment.access_key === access_key) {
       localStorage.setItem('access_key', access_key);
       this.isAuth.next(true);

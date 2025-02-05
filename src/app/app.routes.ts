@@ -4,7 +4,7 @@ import { environment } from '../environments/environment';
 
 import { authGuard } from './auth.guard';
 
-const authGuardIfIsRequired = environment.production ? [authGuard] : undefined
+const authGuardIfIsRequired = !environment.production ? [authGuard] : undefined
 
 export const routes: Routes = [
   {
